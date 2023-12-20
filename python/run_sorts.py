@@ -36,7 +36,6 @@ def run_bst(values, x):
     """
     start = time.perf_counter()
     found = binary_search(values, x)
-    binary_search()
     finish = time.perf_counter()
     run_time = finish - start
 
