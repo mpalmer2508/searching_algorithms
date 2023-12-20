@@ -16,9 +16,9 @@ def convert_find_time(duration):
     return_string = ""
     if duration < 0.001:
         duration *= 1000
-        return_string += f"{duration:0.4f} milliseconds"
+        return_string += f"{duration:0.4f} milliseconds)"
     else:
-        return_string += f"{duration:0.4f} seconds"
+        return_string += f"{duration:0.4f} seconds)"
 
     return return_string
 
@@ -34,21 +34,20 @@ def run_bst(values, x):
     Returns:
     - None
     """
-    values = sorted(values) #This consumes a lot of time with large datasets. 
     start = time.perf_counter()
     found = binary_search(values, x)
+    binary_search()
     finish = time.perf_counter()
     run_time = finish - start
 
     print_string = ""
-    if found:
-        print_string += f"BST: {x} was found in "
+    if found != -1:
+        print_string += f"BST: {x} was found at index {found} ("
     else:
-        print_string += f"BST: {x} was not found in "
+        print_string += f"BST: {x} was not found ("
 
     print_string += convert_find_time(run_time)
     print(print_string)
-    
 
 
 def main():
@@ -61,11 +60,14 @@ def main():
     Returns:
     - None
     """
-    values = random.sample(range(1, 1001), 1000)
-    values.append(336245)
-    x = 336245
+    values = random.sample(range(0, 100), 50)
 
-    run_bst(values, x)
+    x = 37
+
+    # values = ["Ast","ast","brt","ser","Plod"]
+    # x = "ast"
+
+    run_bst(sorted(values), x)
 
 
 if __name__ == "__main__":
