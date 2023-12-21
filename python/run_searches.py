@@ -1,6 +1,7 @@
 import random
 import time
 from bst import binary_search
+from sequential_search import sequential_search
 
 
 def convert_find_time(duration):
@@ -23,27 +24,17 @@ def convert_find_time(duration):
     return return_string
 
 
-def run_bst(values, x):
-    """
-    Run a binary search on a sorted list of values and print the result.
-
-    Parameters:
-    - values (list): A list of values to search.
-    - x: The value to search for.
-
-    Returns:
-    - None
-    """
+def run_search(search_alg, values, x):
     start = time.perf_counter()
-    found = binary_search(values, x)
+    found = search_alg(values, x)
     finish = time.perf_counter()
     run_time = finish - start
 
     print_string = ""
     if found != -1:
-        print_string += f"BST: {x} was found at index {found} ("
+        print_string += f"{search_alg.__name__}:{'':<20} {x:>2} was found at index {found} ("
     else:
-        print_string += f"BST: {x} was not found ("
+        print_string += f"{search_alg.__name__}:{'':>20} {x:>2} was not found ("
 
     print_string += convert_find_time(run_time)
     print(print_string)
@@ -64,9 +55,13 @@ def main():
     x = 37
 
     # values = ["Ast","ast","brt","ser","Plod"]
-    # x = "ast"
+    # x = "Ast"
 
-    run_bst(sorted(values), x)
+
+    run_search(sequential_search, values, x)
+    run_search(binary_search, sorted(values), x)
+    
+
 
 
 if __name__ == "__main__":

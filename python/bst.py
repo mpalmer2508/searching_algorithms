@@ -1,7 +1,5 @@
 """Code in python for a Binary Search Tree"""
 
-import time
-
 
 def binary_search(sorted_array, requested_value, start=0, end=None):
     """
