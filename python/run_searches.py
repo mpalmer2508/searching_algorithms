@@ -25,6 +25,17 @@ def convert_find_time(duration):
 
 
 def run_search(search_alg, values, x):
+    """
+    Run a search algorithm on a list of values to find the target element.
+
+    Parameters:
+    - search_alg (function): The search algorithm function to be used.
+    - values (list): The list of values to be searched.
+    - x: The target element to be searched for.
+
+    Returns:
+    - None: Prints the result of the search along with the time taken.
+    """
     start = time.perf_counter()
     found = search_alg(values, x)
     finish = time.perf_counter()
