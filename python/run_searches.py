@@ -2,6 +2,7 @@ import random
 import time
 from bst import binary_search
 from sequential_search import sequential_search
+from sls import sentinel_linear_search
 
 
 def convert_find_time(duration):
@@ -43,9 +44,9 @@ def run_search(search_alg, values, x):
 
     print_string = ""
     if found != -1:
-        print_string += f"{search_alg.__name__}:{'':<20} {x:>2} was found at index {found} ("
+        print_string += f"{search_alg.__name__:<30} {x} was found at index {found} ("
     else:
-        print_string += f"{search_alg.__name__}:{'':>20} {x:>2} was not found ("
+        print_string += f"{search_alg.__name__:<30} {x} was not found ("
 
     print_string += convert_find_time(run_time)
     print(print_string)
@@ -70,7 +71,9 @@ def main():
 
 
     run_search(sequential_search, values, x)
+    run_search(sentinel_linear_search, values, x)
     run_search(binary_search, sorted(values), x)
+    
     
 
 
