@@ -1,7 +1,7 @@
 import random
 import time
 from bst import binary_search
-from sequential_search import sequential_search
+from ss import sequential_search
 from sls import sentinel_linear_search
 
 
