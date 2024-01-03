@@ -41,7 +41,6 @@ def run_search(search_alg, values, x):
     found = search_alg(values, x)
     finish = time.perf_counter()
     run_time = finish - start
-
     print_string = ""
     if found != -1:
         print_string += f"{search_alg.__name__:<30} {x} was found at index {found} ("
@@ -69,7 +68,7 @@ def main():
     # values = ["Ast","ast","brt","ser","Plod"]
     # x = "Ast"
 
-
+    
     run_search(sequential_search, values, x)
     run_search(sentinel_linear_search, values, x)
     run_search(binary_search, sorted(values), x)
